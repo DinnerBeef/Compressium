@@ -11,7 +11,7 @@ pipeline {
             archiveArtifacts artifacts: '**/build/libs/*.jar'
          }
       }
-      post {
+      stage ('Post') {
     always {
       discordSend title: JOB_NAME,
          link: env.BUILD_URL, 
