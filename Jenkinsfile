@@ -10,14 +10,11 @@ pipeline {
 
             archiveArtifacts artifacts: '**/build/libs/*.jar'
          }
-      }
       stage ('Post') {
-    always {
-      discordSend title: JOB_NAME,
-         link: env.BUILD_URL, 
-         result: currentBuild.currentResult,
-         webhookURL: ${env.DISCORD_WEBHOOK_URL}
-    }
+         always {
+            discordSend title: JOB_NAME, link: env.BUILD_URL, result: currentBuild.currentResult,webhookURL: ${env.DISCORD_WEBHOOK_URL}
+         }
+      }
+      }
    }
-  }
 }
