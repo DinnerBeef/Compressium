@@ -19,4 +19,5 @@ pipeline {
          webhookURL: ${env.DISCORD_WEBHOOK_URL}
     }
    }
+  }
 }
